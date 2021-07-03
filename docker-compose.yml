@@ -1,0 +1,33 @@
+version: '3'
+services:
+#mssql docker
+  ib150050-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=testPassword_123
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    networks:
+      - ib150050net
+
+  ib150050-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:ib150050=Server=ib150050-sql,1433;Database=150050;User=sa;Password=testPassword_123;ConnectRetryCount=0
+    ports:
+      - 59788:5000
+    networks:
+      - ib150050net      
+    links:
+      - ib150050-sql
+    depends_on:
+      - ib150050-sql
+      
+networks:
+  ib150050net:
+    driver: bridge      

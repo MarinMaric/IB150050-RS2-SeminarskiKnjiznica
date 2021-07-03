@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels"
+             x:Class="Knjiznica.MobileApp.Views.UplatePage">
+<ContentPage.BindingContext>
+    <ViewModels:UplateViewModel />
+</ContentPage.BindingContext>
+<ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Vaše uplate" FontSize="24"
+            VerticalOptions="CenterAndExpand" 
+            HorizontalOptions="CenterAndExpand" />
+                <ListView ItemsSource="{Binding uplate}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Opis}" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding Iznos, StringFormat='Iznos: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding DatumUplacivanja}" FontSize="16" LineBreakMode="NoWrap"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+</ContentPage.Content>
+</ContentPage>

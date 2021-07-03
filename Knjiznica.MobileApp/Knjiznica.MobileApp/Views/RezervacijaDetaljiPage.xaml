@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels" xmlns:Converters="clr-namespace:Knjiznica.MobileApp.Converters"
+             x:Class="Knjiznica.MobileApp.Views.RezervacijaDetaljiPage">
+    <ContentPage.BindingContext>
+        <ViewModels:RezervacijaDetaljiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ImageConverter x:Key="imgConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content >
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                <StackLayout  Orientation="Vertical">
+                    <Label Text="{Binding Naslov}" FontSize="24" LineBreakMode="WordWrap"/>
+                    <Label Text="{Binding Status}" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="Podnešeno:" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding DatumRezervacije}" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="Ističe:" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding DatumIsteka}" FontSize="16" LineBreakMode="NoWrap"/>
+                    <Button VerticalOptions="Center" Text="Otkaži" Command="{Binding OtkaziCommand}" IsVisible="{Binding OtkaziVisible}"/>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

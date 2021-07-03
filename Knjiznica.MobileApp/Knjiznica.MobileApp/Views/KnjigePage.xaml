@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels" xmlns:Converters="clr-namespace:Knjiznica.MobileApp.Converters"
+             mc:Ignorable="d"
+             x:Class="Knjiznica.MobileApp.Views.KnjigePage">
+    <ContentPage.BindingContext>
+        <ViewModels:KnjigeViewModel />
+    </ContentPage.BindingContext> 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ImageConverter x:Key="imgConv"/> 
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label FontSize="30" HorizontalTextAlignment="Center">Pretraga Knjiga</Label>
+            <StackLayout Orientation="Horizontal">
+                <Label VerticalTextAlignment="Center">Naziv</Label>
+                <Entry Text="{Binding Naziv}"></Entry>
+                <Label VerticalTextAlignment="Center">Kategorija</Label>
+                <Picker ItemsSource="{Binding kategorije}" SelectedItem="{Binding SelectedKategorija}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+                <Button VerticalOptions="Center" Text="Prikazi" Command="{Binding PretragaCommand}"/>
+            </StackLayout>
+            <ListView ItemsSource="{Binding knjige}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                <StackLayout  Orientation="Vertical">
+                                    <Label Text="{Binding Naslov}" FontSize="24" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding Autor}" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding Ocjena, StringFormat='Prosječna ocjena: {0:0.##}'}" FontSize="18" LineBreakMode="NoWrap"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                            NumberOfTapsRequired="1"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModels:KnjigeViewModel}}, Path=KnjigaTapped}"		
+                            CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

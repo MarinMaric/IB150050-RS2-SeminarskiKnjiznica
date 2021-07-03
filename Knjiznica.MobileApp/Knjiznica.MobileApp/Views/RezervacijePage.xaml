@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:Converters="clr-namespace:Knjiznica.MobileApp.Converters" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels"
+             x:Class="Knjiznica.MobileApp.Views.RezervacijePage">
+    <ContentPage.BindingContext>
+        <ViewModels:RezervacijeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ImageConverter x:Key="imgConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView ItemsSource="{Binding rezervacije}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                <StackLayout  Orientation="Vertical">
+                                    <Label Text="{Binding Naslov}" FontSize="24" LineBreakMode="WordWrap"/>
+                                    <Label Text="{Binding Status}" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="Podnešeno:" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding DatumRezervacije}" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="Ističe:" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding DatumIsteka}" FontSize="18" LineBreakMode="NoWrap"/>
+                                </StackLayout>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                            NumberOfTapsRequired="1"
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModels:RezervacijeViewModel}}, Path=RezervacijaTapped}"		
+                            CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

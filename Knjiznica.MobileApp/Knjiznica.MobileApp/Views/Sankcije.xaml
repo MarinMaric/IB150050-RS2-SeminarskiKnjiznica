@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels"
+             x:Class="Knjiznica.MobileApp.Views.Sankcije">
+    <ContentPage.BindingContext>
+        <ViewModels:SankcijeViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Sankcije" FontSize="24"
+            VerticalOptions="CenterAndExpand" 
+            HorizontalOptions="CenterAndExpand" />
+                <StackLayout>
+                    <Button VerticalOptions="Center" Text="Upozorenja" Command="{Binding UpozorenjaCommand}"/>
+                    <Button VerticalOptions="Center" Text="Kazne" Command="{Binding KazneCommand}" />
+                </StackLayout>
+                <Label IsVisible="{Binding UpozorenjaVisible}" FontSize="18">Upozorenja</Label>
+                    <ListView ItemsSource="{Binding upozorenja}" IsVisible="{Binding UpozorenjaVisible}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                <StackLayout>
+                                    <StackLayout Orientation="Vertical">
+                                        <Label Text="{Binding Naziv}" FontSize="18" LineBreakMode="WordWrap"/>
+                                        <Label Text="{Binding Iznos, StringFormat='Iznos: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                                        <Label Text="{Binding DatumPodnosenja}" FontSize="16" LineBreakMode="NoWrap"/>
+                                    </StackLayout>
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer 
+                                            NumberOfTapsRequired="1"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModels:SankcijeViewModel}}, Path=UpozorenjeTapped}"		
+                                            CommandParameter="{Binding .}">
+                                        </TapGestureRecognizer>
+                                    </StackLayout.GestureRecognizers>
+                                </StackLayout>
+                            </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        </ListView>
+                <Label IsVisible="{Binding KazneVisible}" FontSize="18">Kazne</Label>
+                <ListView ItemsSource="{Binding kazne}" IsVisible="{Binding KazneVisible}">
+                        <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Opis}" FontSize="18" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding Iznos, StringFormat='Iznos: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                                    <Label Text="{Binding Datum}" FontSize="16" LineBreakMode="NoWrap"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                        </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ViewModels="clr-namespace:Knjiznica.MobileApp.ViewModels" xmlns:Converters="clr-namespace:Knjiznica.MobileApp.Converters"
+             x:Class="Knjiznica.MobileApp.Views.KnjigaDetalji">
+    <ContentPage.BindingContext>
+        <ViewModels:KnjigaDetaljiViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Converters:ImageConverter x:Key="imgConv"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content >
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                <StackLayout  Orientation="Vertical">
+                    <Label Text="{Binding Naslov}" FontSize="24" LineBreakMode="WordWrap"/>
+                    <Label Text="{Binding Autor}" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding ProsjekOcjena, StringFormat='Prosječna ocjena: {0:0.##}'}" FontSize="18" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding ISBN, StringFormat='ISBN: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding BrojStranica, StringFormat='Broj stranica: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                    <Label Text="{Binding BrojDostupnihKopija, StringFormat='Dostupno kopija: {0:0.##}'}" FontSize="16" LineBreakMode="NoWrap"/>
+                    <Button VerticalOptions="Center" Text="Rezerviraj" Command="{Binding RezervirajCommand}"/>
+                    <Button VerticalOptions="Center" Text="Dodaj na Wishlist" Command="{Binding WishlistCommand}" IsVisible="{Binding DodajVisible}"/>
+                    <Button VerticalOptions="Center" Text="Ukloni sa Wishlist" Command="{Binding UndoWishlistCommand}" IsVisible="{Binding UkloniVisible}"/>
+                    <Entry Text="{Binding Ocjena}"></Entry>
+                    <Button VerticalOptions="Center" Text="Ocjeni" Command="{Binding OcjeniCommand}"/>
+                    <Label Text="{Binding Opis}" FontSize="16" LineBreakMode="WordWrap"/>
+
+                    <Label>Preporučeno za vas:</Label>
+                    <ListView ItemsSource="{Binding preporuceneKnjige}">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image Source="{Binding Slika, Converter={StaticResource imgConv}}"></Image>
+                                        <StackLayout  Orientation="Vertical">
+                                            <Label Text="{Binding Naslov}" FontSize="16" LineBreakMode="NoWrap"/>
+                                            <Label Text="{Binding ISBN}" FontSize="10" LineBreakMode="NoWrap"/>
+
+                                            <Label Text="{Binding ISBN}" FontSize="10" LineBreakMode="NoWrap"/>
+                                        </StackLayout>
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ViewModels:KnjigaDetaljiViewModel}}, Path=KnjigaTapped}"		
+                                CommandParameter="{Binding .}">
+                                            </TapGestureRecognizer>
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+
+            </StackLayout>
+        </ScrollView>
+       
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCA6DF05-A382-4617-AC29-E75FF0B17F1D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Knjiznica.WinUI</RootNamespace>
+    <AssemblyName>Knjiznica.WinUI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Flurl, Version=3.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.3.0.2\lib\net472\Flurl.dll</HintPath>
+    </Reference>
+    <Reference Include="Flurl.Http, Version=3.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.3.2.0\lib\net472\Flurl.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1449.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="APIService.cs" />
+    <Compile Include="DodajKnjigu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodajKnjigu.Designer.cs">
+      <DependentUpon>DodajKnjigu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAutori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAutori.Designer.cs">
+      <DependentUpon>frmAutori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClanDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClanDetalji.Designer.cs">
+      <DependentUpon>frmClanDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmClanovi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmClanovi.Designer.cs">
+      <DependentUpon>frmClanovi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDodajAutora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDodajAutora.Designer.cs">
+      <DependentUpon>frmDodajAutora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDetaljiKopije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetaljiKopije.Designer.cs">
+      <DependentUpon>frmDetaljiKopije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDodajPosudbu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDodajPosudbu.Designer.cs">
+      <DependentUpon>frmDodajPosudbu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKazna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKazna.Designer.cs">
+      <DependentUpon>frmKazna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKaznaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKaznaDetalji.Designer.cs">
+      <DependentUpon>frmKaznaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKazne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKazne.Designer.cs">
+      <DependentUpon>frmKazne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKnjigaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKnjigaDetalji.Designer.cs">
+      <DependentUpon>frmKnjigaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKnjige.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKnjige.Designer.cs">
+      <DependentUpon>frmKnjige.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKnjigePretraga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKnjigePretraga.Designer.cs">
+      <DependentUpon>frmKnjigePretraga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosudbaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosudbaDetalji.Designer.cs">
+      <DependentUpon>frmPosudbaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPosudbe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPosudbe.Designer.cs">
+      <DependentUpon>frmPosudbe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPovjestStanja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPovjestStanja.Designer.cs">
+      <DependentUpon>frmPovjestStanja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportPosudba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportPosudba.Designer.cs">
+      <DependentUpon>frmReportPosudba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReportRezervacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportRezervacija.Designer.cs">
+      <DependentUpon>frmReportRezervacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRezervacijaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRezervacijaDetalji.Designer.cs">
+      <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRezervacije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRezervacije.Designer.cs">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStanjeDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStanjeDetalji.Designer.cs">
+      <DependentUpon>frmStanjeDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUplate.Designer.cs">
+      <DependentUpon>frmUplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUpozori.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUpozori.Designer.cs">
+      <DependentUpon>frmUpozori.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\PosudbeReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\PosudbeReportView.Designer.cs">
+      <DependentUpon>PosudbeReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\RezervacijeReportView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\RezervacijeReportView.Designer.cs">
+      <DependentUpon>RezervacijeReportView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="DodajKnjigu.resx">
+      <DependentUpon>DodajKnjigu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAutori.resx">
+      <DependentUpon>frmAutori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClanDetalji.resx">
+      <DependentUpon>frmClanDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmClanovi.resx">
+      <DependentUpon>frmClanovi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDodajAutora.resx">
+      <DependentUpon>frmDodajAutora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetaljiKopije.resx">
+      <DependentUpon>frmDetaljiKopije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDodajPosudbu.resx">
+      <DependentUpon>frmDodajPosudbu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKazna.resx">
+      <DependentUpon>frmKazna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKaznaDetalji.resx">
+      <DependentUpon>frmKaznaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKazne.resx">
+      <DependentUpon>frmKazne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKnjigaDetalji.resx">
+      <DependentUpon>frmKnjigaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKnjige.resx">
+      <DependentUpon>frmKnjige.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKnjigePretraga.resx">
+      <DependentUpon>frmKnjigePretraga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosudbaDetalji.resx">
+      <DependentUpon>frmPosudbaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPosudbe.resx">
+      <DependentUpon>frmPosudbe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPovjestStanja.resx">
+      <DependentUpon>frmPovjestStanja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportPosudba.resx">
+      <DependentUpon>frmReportPosudba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportRezervacija.resx">
+      <DependentUpon>frmReportRezervacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRezervacijaDetalji.resx">
+      <DependentUpon>frmRezervacijaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRezervacije.resx">
+      <DependentUpon>frmRezervacije.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStanjeDetalji.resx">
+      <DependentUpon>frmStanjeDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUplate.resx">
+      <DependentUpon>frmUplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUpozori.resx">
+      <DependentUpon>frmUpozori.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reports\posudbeReport.rdlc" />
+    <EmbeddedResource Include="Reports\PosudbeReportView.resx">
+      <DependentUpon>PosudbeReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\realPosudbeReport.rdlc" />
+    <EmbeddedResource Include="Reports\RezervacijeReportView.resx">
+      <DependentUpon>RezervacijeReportView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Knjiznica.Model.Clan.datasource" />
+    <None Include="Properties\DataSources\Knjiznica.Model.Knjiga.datasource" />
+    <None Include="Properties\DataSources\Knjiznica.Model.Posudba.datasource" />
+    <None Include="Properties\DataSources\Knjiznica.Model.Rezervacija.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Knjiznica.Model\Knjiznica.Model.csproj">
+      <Project>{44d4093f-4770-4f41-af87-5c28b82ca243}</Project>
+      <Name>Knjiznica.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
