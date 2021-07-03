@@ -1,6 +1,6 @@
 Desktop app login:
 
-desktop
+desktop  
 test
 
 
@@ -8,7 +8,7 @@ test
 UWP login:
 
 
-mobile
+mobile  
 test
 
 
@@ -16,5 +16,5 @@ test
 Baza login:
 
 
-sa
+sa  
 testPassword_123
