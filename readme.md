@@ -2,6 +2,8 @@
 
 A system for supporting a library business. Users can create an account on the mobile app and browse, wishlist and borrow books. Administrators (librarians) use a desktop app to track all the reservations and keep track of which customer borrowed which book. There is also a penalty system for repeated offenders such as in case of damaging a book or returning it late. 
 
+API and database are dockerized. 
+
 # App uses
 
 .NET Core
@@ -9,6 +11,8 @@ A system for supporting a library business. Users can create an account on the m
 Xamarin
 
 WinForms
+
+Docker
 
 
 
