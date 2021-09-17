@@ -15,7 +15,6 @@ WinForms
 Docker
 
 
-
 # Login Info
 
 Desktop app login:
@@ -50,3 +49,10 @@ Br. kartice: 4242424242424242
 Exp. date: bilo koji buduci datum
 
 CCV: bilo koji 3-znamenkasti broj
+
+![image](https://user-images.githubusercontent.com/45796438/133781862-afb9e1b4-3086-4056-839f-0c1e88057eb3.png)
+
+![image](https://user-images.githubusercontent.com/45796438/133782096-a959d97b-932d-4c14-a9ee-3813bc45c084.png)
+
+![image](https://user-images.githubusercontent.com/45796438/133782001-18a8d0b3-77a5-46cd-b36a-ad7b43e56d28.png)
+
